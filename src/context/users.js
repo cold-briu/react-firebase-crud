@@ -3,6 +3,8 @@ import { users as usersApi } from "../api";
 
 export const usersContext = createContext()
 
+export const usersDispatcherContext = createContext()
+
 export const UsersProvider = ({ children }) => {
 
 	const [data, setData] = useState(null)
@@ -22,13 +24,23 @@ export const UsersProvider = ({ children }) => {
 		}
 	}
 
+	// const state = {
+	// 	data: data,
+	// 	error: error,
+	// 	isLoading: isLoading
+	// };
+
 	const state = { data, error, isLoading };
+
+	const dispatchers = { getData }
 
 	return (
 		<>
-			<usersContext.Provider value={state}>
-				{children}
-			</usersContext.Provider>
+			<usersDispatcherContext.Provider value={dispatchers}>
+				<usersContext.Provider value={state}>
+					{children}
+				</usersContext.Provider>
+			</usersDispatcherContext.Provider>
 		</>
 	)
 }
