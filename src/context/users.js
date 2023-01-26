@@ -24,6 +24,20 @@ export const UsersProvider = ({ children }) => {
 		}
 	}
 
+
+	const deleteUser = async (userId) => {
+		try {
+			setIsLoading(true)
+			await usersApi.deleteUser(userId)
+			setIsLoading(false)
+			await getData()
+		} catch (error) {
+			setIsLoading(false)
+			setError(error.message)
+		}
+	}
+
+
 	// const state = {
 	// 	data: data,
 	// 	error: error,
@@ -32,7 +46,7 @@ export const UsersProvider = ({ children }) => {
 
 	const state = { data, error, isLoading };
 
-	const dispatchers = { getData }
+	const dispatchers = { getData, deleteUser }
 
 	return (
 		<>

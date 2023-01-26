@@ -1,8 +1,11 @@
 import React from 'react'
-
+import { GetUsers } from "../containers";
 const Users = () => {
 	return (
-		<div>Users</div>
+		<>
+			<div>Users</div>
+			<GetUsers />
+		</>
 	)
 }
 
