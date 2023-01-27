@@ -3,7 +3,7 @@ import { GetUsers, CreateUser } from "../containers";
 const Users = () => {
 	return (
 		<>
-			<div>Users</div>
+			<h3><em>page: Users.jsx</em></h3>
 			<CreateUser />
 			<GetUsers />
 		</>

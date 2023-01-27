@@ -14,6 +14,8 @@ const UserCard = ({ username, name, id }) => {
 
 	return (
 		<div className="card mb-2">
+			<em>Component: UserCard.jsx</em>
+
 			<div className="card-body">
 				<h5 className="card-title">
 					{username}

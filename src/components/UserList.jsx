@@ -8,6 +8,8 @@ const UsersList = ({ list }) => {
 
 	return (
 		<div className="p-3 mt-1">
+			<em>Component: UsersList.jsx</em>
+
 			<div className="mt-5 mb-3">
 				<span> component: UserList.jsx</span>
 				<span> aka lista de componentes</span>
