@@ -24,6 +24,8 @@ export const UsersProvider = ({ children }) => {
 		}
 	}
 
+	const sendUser = async () => { }
+
 
 	const deleteUser = async (userId) => {
 		try {
@@ -46,7 +48,7 @@ export const UsersProvider = ({ children }) => {
 
 	const state = { data, error, isLoading };
 
-	const dispatchers = { getData, deleteUser }
+	const dispatchers = { getData, deleteUser, sendUser }
 
 	return (
 		<>

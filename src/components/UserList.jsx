@@ -2,7 +2,9 @@ import React from 'react'
 import UserCard from './UserCard'
 
 
+
 const UsersList = ({ list }) => {
+
 
 	return (
 		<div className="p-3 mt-1">
@@ -26,3 +28,45 @@ const UsersList = ({ list }) => {
 }
 
 export default UsersList
+
+
+// object destructuring 
+
+/*
+	
+const myObj = {
+	clave: "valor",
+	claveDos: "valor2"
+};
+
+
+myFunc(myObj)
+
+
+function myFunc(_obj){
+
+	consle.log(_obj.claveDos)
+}
+
+function myFunc2( {claveDos} ) {
+
+	consle.log(claveDos)
+}
+
+const useContext = ( _context ) => {
+	const myObj = {
+		data: [],
+		isLoading: false.
+		error: ""
+	}
+
+	return myObj
+}
+
+const {data, error, isLoading} = useContext(userContext)
+	
+const myComp = (props) => {
+
+}
+	
+*/
