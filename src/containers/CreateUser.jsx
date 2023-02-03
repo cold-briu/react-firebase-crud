@@ -1,13 +1,21 @@
-import React, { useContext } from 'react'
-import { usersDispatcherContext } from '../context/users'
+import React from 'react'
+import { UserForm } from '../components'
 
 const CreateUser = () => {
-
-	const { sendUser } = useContext(usersDispatcherContext)
 
 	return (
 		<div className="p-3">
 			<h4><em>container: CreateUser.jsx</em></h4>
+			<div className="container">
+				<div className="row">
+					<div className="col-2 col-md-3">
+
+					</div>
+					<div className="col-8 col-md-6">
+						<UserForm />
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }
