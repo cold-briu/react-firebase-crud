@@ -1,10 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useMemo } from 'react'
+import { useParams } from 'react-router'
 import { UserForm } from '../components'
 import { users } from '../context'
 
 const CreateUser = () => {
+	const { id } = useParams()
+	const { sendUser, getUserDetails } = useContext(users.usersDispatcherContext)
+	const { currentUser } = useContext(users.usersContext)
 
-	const { sendUser } = useContext(users.usersDispatcherContext)
+	useEffect(() => {
+		if (id) {
+			getUserDetails(id)
+		}
+	}, [id])
 
 	return (
 		<div className="p-3">
@@ -15,7 +23,7 @@ const CreateUser = () => {
 
 					</div>
 					<div className="col-8 col-md-6">
-						<UserForm sendUser={sendUser} />
+						<UserForm sendUser={sendUser} initialValues={currentUser} />
 					</div>
 				</div>
 			</div>

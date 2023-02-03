@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+import { useParams } from 'react-router';
 import { users as usersApi } from "../api";
 
 export const usersContext = createContext()
@@ -6,12 +7,17 @@ export const usersContext = createContext()
 export const usersDispatcherContext = createContext()
 
 export const UsersProvider = ({ children }) => {
-
 	const [data, setData] = useState(null)
 	const [error, setError] = useState("")
 	const [isLoading, setIsLoading] = useState(false)
+	const [currentUser, setCurrentUser] = useState({
+		username: "init @username",
+		name: "initial name",
+		age: "initial age"
+	})
 
 	const getData = async () => {
+		console.log("getData")
 		try {
 			setData(null)
 			setIsLoading(true)
@@ -24,11 +30,17 @@ export const UsersProvider = ({ children }) => {
 		}
 	}
 
-	const sendUser = async (newUser) => {
-		console.log("send user");
+	const sendUser = async (userData) => {
+		console.log("sendUser")
 		try {
 			setIsLoading(true)
-			await usersApi.createUser(newUser)
+
+			if (userData.id) {
+				await usersApi.updateUser(userData.id, userData)
+			} else {
+				await usersApi.createUser(userData)
+			}
+
 			setIsLoading(false)
 			await getData()
 		} catch (error) {
@@ -37,8 +49,22 @@ export const UsersProvider = ({ children }) => {
 		}
 	}
 
+	const getUserDetails = async (id) => {
+		console.log("getUserDetails")
+		try {
+			setIsLoading(true)
+			const res = await usersApi.getUserDetails(id)
+			setCurrentUser(res.data);
+			setIsLoading(false)
+		} catch (error) {
+			setIsLoading(false)
+			setError(error.message)
+		}
+	}
+
 
 	const deleteUser = async (userId) => {
+		console.log("deleteUser")
 		try {
 			setIsLoading(true)
 			await usersApi.deleteUser(userId)
@@ -50,16 +76,15 @@ export const UsersProvider = ({ children }) => {
 		}
 	}
 
-
 	// const state = {
 	// 	data: data,
 	// 	error: error,
 	// 	isLoading: isLoading
 	// };
 
-	const state = { data, error, isLoading };
+	const state = { data, error, isLoading, currentUser };
 
-	const dispatchers = { getData, deleteUser, sendUser }
+	const dispatchers = { getData, deleteUser, sendUser, getUserDetails }
 
 	return (
 		<>
