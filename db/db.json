@@ -1,12 +1,6 @@
 {
   "users": [
     {
-      "username": "@editar",
-      "name": "editando",
-      "age": "1234",
-      "id": 1
-    },
-    {
       "username": "@otro",
       "name": "otrosss",
       "age": "88",
