@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import { users } from "../context";
 import { UserList } from "../components";
 
+
 const GetUsers = () => {
 
 	const { getData } = useContext(users.usersDispatcherContext)
@@ -21,12 +22,10 @@ const GetUsers = () => {
 
 				<h4><em>container: GetUsers.jsx</em></h4>
 
-
-				<UserList list={data} />
-
-
 				<p> error: {error}</p>
 				<p> isLoading: {String(isLoading)}</p>
+
+				<UserList list={data} />
 			</div>
 		</>
 	)
