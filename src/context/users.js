@@ -24,7 +24,18 @@ export const UsersProvider = ({ children }) => {
 		}
 	}
 
-	const sendUser = async () => { }
+	const sendUser = async (newUser) => {
+		console.log("send user");
+		try {
+			setIsLoading(true)
+			await usersApi.createUser(newUser)
+			setIsLoading(false)
+			await getData()
+		} catch (error) {
+			setIsLoading(false)
+			setError(error.message)
+		}
+	}
 
 
 	const deleteUser = async (userId) => {

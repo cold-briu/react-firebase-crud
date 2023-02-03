@@ -7,16 +7,29 @@ name
 age
 */
 
-const UserForm = () => {
 
-	const { register, handleSubmit } = useForm();
+const UserForm = ({ sendUser }) => {
 
-	const onSubmit = (a) => {
+	const { register, handleSubmit, reset } = useForm({
+		values: {
+			username: "initial"
+		}
+	});
 
-		console.log(a);
-
+	const handleReset = () => {
+		// console.log(data, "reset");
+		return {
+			username: "",
+			name: "",
+			age: "",
+		}
 	}
 
+	const onSubmit = (data) => {
+		sendUser(data)
+
+		reset(handleReset)
+	}
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
