@@ -9,7 +9,7 @@ age
 
 
 const UserForm = ({ sendUser, initialValues }) => {
-	console.log(initialValues);
+	// console.log(initialValues);
 	const { register, handleSubmit, reset } = useForm({
 		values: initialValues
 	});

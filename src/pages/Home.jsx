@@ -4,8 +4,9 @@ const Home = () => {
 	return (
 		<>
 			<div>Home</div>
-			<img src="https://pbs.twimg.com/media/Cezrs0bWAAElw9i.jpg" alt="bendecido dia" />
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/04854XqcfCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti repudiandae consectetur dolor dignissimos ex tempore sequi explicabo incidunt amet ullam officiis, commodi, quisquam libero obcaecati veritatis quis nisi assumenda nobis!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti repudiandae consectetur dolor dignissimos ex tempore sequi explicabo incidunt amet ullam officiis, commodi, quisquam libero obcaecati veritatis quis nisi assumenda nobis!</p>
+
 		</>
 	)
 }

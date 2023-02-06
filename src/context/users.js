@@ -1,15 +1,16 @@
 import React, { createContext, useState } from 'react'
-import { useParams } from 'react-router';
-import { users as usersApi } from "../api";
+import { users as usersApi, firebase } from "../api";
 
 export const usersContext = createContext()
 
 export const usersDispatcherContext = createContext()
 
 export const UsersProvider = ({ children }) => {
+
 	const [data, setData] = useState(null)
 	const [error, setError] = useState("")
 	const [isLoading, setIsLoading] = useState(false)
+
 	const [currentUser, setCurrentUser] = useState({
 		username: "init @username",
 		name: "initial name",
@@ -17,11 +18,11 @@ export const UsersProvider = ({ children }) => {
 	})
 
 	const getData = async () => {
-		console.log("getData")
+		// console.log("getData")
 		try {
 			setData(null)
 			setIsLoading(true)
-			const res = await usersApi.getUsers()
+			const res = await firebase.getData()
 			setIsLoading(false)
 			setData(res.data)
 		} catch (error) {

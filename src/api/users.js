@@ -1,7 +1,8 @@
 import Axios from "axios"
 
+// HTTP REST
 const api = Axios.create({
-	baseURL: "http://127.0.1:3004"
+	baseURL: "http://127.0.1:3004",
 })
 
 // export const deleteUser = async () => await api.delete()
@@ -30,3 +31,4 @@ export const updateUser = async (id, newUser) => {
 	let res = await api.put(`/users/${id}`, newUser)
 	return res
 }
+
